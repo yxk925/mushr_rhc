@@ -6,7 +6,7 @@ import os
 import numpy as np
 import torch
 
-import cache
+from . import cache
 import rhctensor
 
 
@@ -88,4 +88,4 @@ def load_permissible_region(params, map):
 
         np.save(perm_reg_file, pr)
 
-    return torch.from_numpy(pr.astype(np.int)).type(rhctensor.byte_tensor())
+    return torch.from_numpy(pr.astype(np.int32)).type(rhctensor.byte_tensor())

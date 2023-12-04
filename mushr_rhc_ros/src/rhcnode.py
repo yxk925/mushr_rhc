@@ -190,7 +190,7 @@ class RHCNode(rhcbase.RHCBase):
 
             r, g, b = 0x36, 0xCD, 0xC4
             m.colors = [ColorRGBA(r=r / 255.0, g=g / 255.0, b=b / 255.0, a=0.7)] * len(
-                m.points
+                list(m.points)
             )
             m.scale.x = 0.05
             self.traj_chosen_pub.publish(m)

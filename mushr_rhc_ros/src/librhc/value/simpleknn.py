@@ -142,9 +142,9 @@ class SimpleKNN:
             # There was no paths to this point
             return False
 
-        self.reachable_pts = pts_w_goal[length_to_goal.keys()]
+        self.reachable_pts = pts_w_goal[list(length_to_goal.keys())]
         self.reachable_nodes = length_to_goal.keys()
-        self.reachable_dst = length_to_goal.values()
+        self.reachable_dst = list(length_to_goal.values())
 
         self._viz_halton()
 
@@ -182,7 +182,7 @@ class SimpleKNN:
         m.scale.x = 0.1
         m.scale.y = 0.1
         m.scale.z = 0.1
-        max_d = np.max(self.reachable_dst)
+        max_d = float(np.max(self.reachable_dst))
         for i, pts in enumerate(hp):
             p = Point()
             c = ColorRGBA()
